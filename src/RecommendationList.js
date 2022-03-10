@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import Card from "./Card";
 
@@ -12,16 +12,16 @@ const RecommendationList = ({
   recommendations,
   setRecommendations,
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const initRecommendations = async () => {
-      setIsLoading(true);
+      // setIsLoading(true);
       const result = await getAllRecommendations();
       if (result.status) {
         setRecommendations(result.recommendations);
       }
-      setIsLoading(false);
+      // setIsLoading(false);
     };
 
     const onNewRecommendation = (
@@ -33,15 +33,6 @@ const RecommendationList = ({
       name,
       url
     ) => {
-      console.log("newrec", {
-        userAddress,
-        timestamp,
-        message,
-        artist,
-        album,
-        name,
-        url,
-      });
       setRecommendations((prevState) => [
         ...prevState,
         {
